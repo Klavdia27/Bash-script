@@ -1,0 +1,37 @@
+#!/bin/bash
+read ext
+
+echo  | tee index.csv
+echo  | tee index.html
+
+files=$(find "$PWD" -type f -regex "^.*$ext")
+function print1 {
+  echo "<html>
+  <head>
+    <title>Bash list</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <h1>Result</h1>
+    <ul>" 
+}
+function print2 {
+  echo "    </ul>
+  </body>
+ </html>"
+}
+
+print1 | tee -a index.html
+for f in $files
+  do 
+    filname=$(basename -- "$f")
+    extension="${filname##*.}"
+    filename="${filname%.*}"
+    echo "      <li>
+        <p>$filname<p>
+        <a target=\"_black\" href=\"$f\">$f</a>
+      </li>" | tee -a index.html
+    echo "$filename;$extension" | tee -a index.csv
+done
+print2 |  tee -a index.html 
+ 
