@@ -1,0 +1,17 @@
+#!/bin/bash
+echo  | tee $2
+branches=$(git branch --list --format='%(refname:short)')
+
+x=1
+ for f in $branches 
+  do
+   if [ "$f" == "$1" ] ; then
+        x=2
+   fi
+ done 
+
+if [ "$x" -eq 2 ] ;  then    
+    echo "The branch $1 exists!" | tee -a $2
+ else 
+    echo "The branch $1 doesn't exists!" | tee -a $2
+fi
