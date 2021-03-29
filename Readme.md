@@ -1,7 +1,8 @@
 ### List
 
-Выводит в терминал список файлов расширения %EXT%, поиск в текущей папке и всех подпапках. 
-Результат в двух файлах **index.html** и  **index.csv**
+Output to the terminal list of files with extension **%EXT%**, search in the current folder and all subfolders. 
+Result in two files **index.html** and **index.csv**
+
 
 ```
 sh list mp3
@@ -13,7 +14,7 @@ sh list txt
 
 ### Check-branch
 
-Выводит в терминал сообщение существует ли ветка на локальном репозитории.
+Print  message to the terminal if branch exists on the local repository.
 ``` 
 sh check-branch master # sh check-branch __BRANCH_NAME__
 The branch master exists
@@ -21,7 +22,7 @@ The branch master exists
 sh check-branch fakeMaster # sh check-branch __BRANCH_NAME__
 The branch fakeMaster doesn't exist
  ```
-Bash скрипт выводит результат в терминал и сохраняет результат в файл, файл не дописывается, то есть удаляется содержимое, которое было до.
+Bash script print result to the terminal and save result to file, the file is not appended, the content that was before is deleted.
 ```
 sh check-branch master output.txt # sh check-branch %BRANCH_NAME% %FILE_NAME%
 The branch fakeMaster doesn't exist and a file output.txt is created
